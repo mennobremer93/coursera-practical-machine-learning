@@ -2,7 +2,10 @@
 title: "Practical machine learning"
 author: "Menno Bremer"
 date: "9-12-2018"
-output: html_document
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
 ---
 
 # Practical Machine Learning project
@@ -31,7 +34,6 @@ setwd("~/Documents/Coursera")
 install.packages("caret")
 install.packages("ggplot2")
 install.packages("randomForest")
-
 ```
 
 ```{r}
@@ -60,9 +62,18 @@ inTest <- train[-Training, ]
 dim(inTrain)
 ```
 
+13737
+
+160
+
+
 ```{r}
 dim(inTest)
 ```
+
+5885
+
+160
 
 ## Feature Selection
 
@@ -83,6 +94,10 @@ for (i in 1:length(inTrain)) {
 
 dim(intrainselection)
 ```
+
+13737
+
+60
 
 ```{r}
 #remove columns that are obviously not predictors
@@ -142,6 +157,12 @@ Accuracy of in sample is lower than out of sample (99.63% vs 100%).
 predict3 <- predict(fitmod, test, type = "class")
 print(predict3)
 ```
+
+The model predicts the following: 
+
+1B-2A-3B-4A-5A-6E-7D-8B-9A-10A-11B-12C-13B-14A-15E-16E-17A-18B-19B-20B
+
+As a result, the model predicts the right values. 
 
 ### Reference  
 Velloso, E.; Bulling, A.; Gellersen, H.; Ugulino, W.; Fuks, H. Qualitative 
